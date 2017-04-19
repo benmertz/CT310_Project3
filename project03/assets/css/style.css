@@ -1,0 +1,58 @@
+.jumbotron {
+	background-color: rgb(40, 130, 156);
+	margin-bottom: 0px;
+	color:white;
+	font-family: 'Alegreya Sans SC';
+}
+.mainContainer {
+	padding: 2em;
+}
+
+.footer {
+	text-align:center;
+	margin-top:10px;
+	padding: 2em;
+	color: rgb(86, 168, 193);
+	background-color: white;
+	border-top: solid 2px rgb(40, 130, 156);
+}
+
+.photoCred {
+	text-align: center;
+	font-size: 10px;
+	margin-top: 1em;
+}
+
+h1, h2, h3, h4{
+	text-align: center;
+}
+
+.avatar{
+	margin-bottom: 10px;
+}
+
+.rounded{
+	border-radius: 6px;
+	border: 1px solid grey;
+}
+
+.comment-section{
+	border-top: 1px dotted grey;
+	border-bottom: 1px dotted grey;
+	padding: 5px;
+}
+
+.title-box{
+	text-align: center;
+}
+
+.form-inline{
+	padding: 5px;
+}
+
+.jumbotron{
+	 background-image: url(logo1.jpg);
+	 background-position: left center;
+	 background-repeat:  no-repeat;
+	 text-align:center;
+}
