@@ -147,7 +147,6 @@ function testedIngredientInsert($id, $ing_name, $img_name, $desc){
    }
 }
 function addDefaultUsers(){
-	testedUserInsert(1, "bpowley", "password","brendon.powley@gmail.com",1);
 	testedUserInsert(2, "benmertz", "password","bn.mertz@gmail.com", 1);
 	testedUserInsert(3, "ct310", "password", "ct310@cs.colostate.edu", 1);
 	testedUserInsert(4, "fred", "password", "ct310@cs.colostate.edu", 0);
