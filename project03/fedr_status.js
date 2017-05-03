@@ -1,23 +1,12 @@
 var masterUrl = "https://www.cs.colostate.edu/~ct310/yr2017sp/more_assignments/project03masterlist.php"
 var federatedUrlList = [];
+var federation = [];
 
 jQuery(document).ready(function() {
 	createUrlList();
 });
 
 
-function changeStatusColor(){
-	console.log("change color");
-
-	$(".statopen").css("color","white");
-	$(".statopen").css("background-color","green");
-	$(".statopen").css("padding","10px");
-
-	$(".statclosed").css("color","white");
-	$(".statclosed").css("background-color","red");
-	$(".statclosed").css("padding","10px");
-
-}
 
 function getStatus(baseUrl){
 		var statusURL = baseUrl + "ajax_status.php"
@@ -40,56 +29,88 @@ function getStatus(baseUrl){
 				//console.log((data.status));
 				urlStatus = data.status;
 			}
-			console.log("stat = "  + urlStatus);
+			//console.log("stat = "  + urlStatus);
           }
        });
 	
 		if(urlStatus=="open" || urlStatus=="closed"){
 			return urlStatus;
 		}else {
-				return "n/a"
+				return "undef"
 		}
 
 }
-	
-	
-function addRow(json) {
+
+
+
+
+function addStatusRow(json) {
 	var rt = "";
 	var tab = document.getElementById('fedr_status_table');
 		status = getStatus(json.baseURL)
-		rt  = "<tr class=\"stat"+status+"\">";
+		var trStatus= "";
+		if(status=="open"){
+				trStatus="success";
+		}else if(status=="closed"){
+				trStatus="danger";
+		}else{
+				trStatus="warning";
+		}
+		rt  = "<tr class=\"stat"+status+" " + trStatus+"\">";
 		rt += "<td>"+status+"</td>";
 		rt += "<td>"+json.Team+"</td>";
 		rt += "<td>"+json.nameShort+"</td>";
 		rt += "<td>"+json.nameLong+"</td>";
-		rt += "<td>"+json.baseURL+"</td>";
+		rt += "<td><a>"+json.baseURL+"</a></td>";
 		rt += "</tr>";
 		
 		tab.innerHTML += rt;
 
 }
 
-function getSound(n) {
-	jQuery.post("asound.php", {a : n}, function(data, status) {
-		target = "#" + n + "_sound";
-        jQuery(target).text(data);
-	})
+class fedr{
+		constructor(b, t, nS, nL){
+			this.baseURL=b;
+			this.team=t;
+			this.nameShort=nS;
+			this.nameLong=nL;
+			this.status = getStatus(this.baseURL);
+			//this.ingredients = getIngredients(this.baseURL, this.status);
+		}
+			
+		toString(){
+			var ret = "";
+			ret += this.team + " " + this.nameShort + " " + this.status + " ";
+			return ret;
+		}
 }
 
 function createUrlList(){
 	
-	jQuery.post(masterUrl, {}, function(data, status) {
-
-		for(var i = 0; i < data.length; i++) {
-			var obj = data[i];
-			//console.log(JSON.stringify(obj))
-			addRow(obj);
+	$.ajax({
+          url:  masterUrl,
+          type: "POST",
+          async:true,
+          success: function(data){
+			  
+				for(var i = 0; i < data.length; i++) {
+					var obj = data[i];
+					//console.log(JSON.stringify(obj));
+					
+					var temp = new fedr(obj.baseURL, obj.Team, obj.nameShort, obj.nameLong);
+					
+					console.log(temp.toString());
+					
+					federation.push(temp);
+					addStatusRow(obj);
 			
-		}
-		console.log("doen " + federatedUrlList.length)
-		changeStatusColor();
+				}
+				jQuery("#outp2").html("SUCCESS");
+          }
+       });
+	
+	
 
-	});
 
 	
 }

@@ -5,7 +5,7 @@ $pgTitle = "Home";
 include ('inc/header.php');
 include ('inc/nav.php');
 ?>
-<script type="text/javascript" src="fedr_status.js"></script>
+<script type="text/javascript" src="fedr_ingr.js"></script>
 
 </head>
 
@@ -19,21 +19,18 @@ include ('inc/nav.php');
 			<p  class="" id="placeholder"><strong>Status: <span id="outp2">LOADING</span></strong></p>
 
 
-			<table class="table table-hover table-responsive" id="fedr_status_table">
+			<table class="table table-hover table-responsive" id="fedr_ingr_table">
 				<tr>
-					<th>Status</th>
-					<th>Team#</th>
-					<th>Name Short</th>
-					<th>Name Long</th>
-					<th>Url</th>
+					<th>Name</th>
+					<th>Unit</th>
+					<th>Price</th>
+					<th>Short</th>
+					<th>Host Website</th>
 
 				</tr>
 
 
 			</table>
-			<a></a>
-			<a></a>
-			
 
 		</div>
 	</div>
