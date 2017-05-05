@@ -114,7 +114,7 @@ function createIngrTable(fedr) {
 			console.log("ingr = " + ingr.toString())
 
 			rt  = "<tr>";
-			rt += "<td>"+ingr.name+"</td>";
+			rt += "<td><a href=\http://www.cs.colostate.edu/~pello/CT310_Project3/project03/ajax_viewingr.php?ing="+ingr.name+"&link="+temp.baseURL+">"+ingr.name+"</td>";
 			rt += "<td>"+ingr.unit+"</td>";
 			rt += "<td> $"+ingr.cost+"</td>";
 			rt += "<td>"+ingr.short+"</td>";

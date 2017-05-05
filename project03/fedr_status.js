@@ -22,6 +22,9 @@ function getStatus(baseUrl){
              if(data instanceof Array){
 				for(var i = 0; i < data.length; i++) {
 					var obj = data[i];
+					
+					
+					JSON.stringify();
 					//console.log(obj.status)
 					urlStatus =  obj.status;			
 				}
