@@ -19,6 +19,8 @@ include ('inc/nav.php');
 			<h3>
 			On our site you will find information on some of the freshest ingredients to complement your cooking experience!
 			</h3>
+			<a href="./fedr_status.php">fedr status</a>
+			
 		</div>
 	</div>
 

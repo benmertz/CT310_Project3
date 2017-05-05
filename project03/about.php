@@ -28,10 +28,10 @@ include ('inc/header.php');
 			</p>
 		</div>
 		<div class="col-sm-6">
-			<h2>Brendon Powley</h2>
-			<img src="assets/img/brendon.jpg" class="img-circle center-block avatar" alt="bp" width="280" height="290">
+			<h2>Andrew Pellerito</h2>
+			<img src="assets/img/andrew.jpg" class="img-circle center-block avatar" alt="bp" width="280" height="290">
 			<p style="text-align: center;">
-				Brendon is a junior at CSU studying applied computing technology. His interests include sports, music, and biking.
+				Andrew is a senior at CSU studying applied computing technology. Go big, or go home.
 			</p>
 		</div>
 	</div>
